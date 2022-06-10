@@ -1,5 +1,5 @@
 {
     "title": "Game",
     "win_size": [960, 540],
-    "default_scene": "scenes/scene_game.json"
+    "default_scene": "scene_game"
 }

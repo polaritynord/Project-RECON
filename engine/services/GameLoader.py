@@ -12,6 +12,8 @@ class GameLoader:
             SetConfigFlags(FLAG_WINDOW_RESIZABLE)
             InitWindow(conf_data["win_size"][0], conf_data["win_size"][1], conf_data["title"].encode())
             SetExitKey(0)
+        
+        engine.GAME_NAME = directory
     
     def runGame():
         while not WindowShouldClose():

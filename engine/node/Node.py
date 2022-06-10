@@ -12,7 +12,7 @@ class Node(object):
             v.engineUpdate()
     
     def getChildren(self):
-        return self.__children.values()
+        return self.__children
     
     def getNode(self, name):
         return self.__children[name]
