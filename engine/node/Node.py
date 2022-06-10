@@ -1,3 +1,4 @@
+from engine.node.components import TransformComponent
 
 class Node(object):
     def __init__(self, parent):
@@ -5,6 +6,7 @@ class Node(object):
         self.name = type(self).__name__
         self.__children = {}
         self.__components = {}
+        self.addComponent(TransformComponent)
     
     def engineUpdate(self):
         # Update children
