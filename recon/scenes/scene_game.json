@@ -3,7 +3,7 @@
         "children": {
             "Node2": {
                 "children": {},
-                "components": []
+                "components": ["TestScript"]
             }
         },
         "components": []

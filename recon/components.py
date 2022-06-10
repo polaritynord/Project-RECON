@@ -2,8 +2,6 @@ from engine import *
 
 class TestScript(ScriptComponent):
     def eventUpdate(self):
-        print("yoooooo")
-
-class TestScript2(ScriptComponent):
-    def eventUpdate(self):
-        print("aa")
+        node = self.parent
+        node.setRotation(node.getRotation() + 1)
+        print(node.getRotation())

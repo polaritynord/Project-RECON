@@ -1,4 +1,5 @@
 from engine.node.components import TransformComponent
+from pyray import Vector2
 
 class Node(object):
     def __init__(self, parent):
@@ -7,6 +8,25 @@ class Node(object):
         self.__children = {}
         self.__components = {}
         self.addComponent(TransformComponent)
+    
+    # TransformComponent related stuff
+    def getPosition(self):
+        return self.getComponent("TransformComponent").position
+    
+    def getScale(self):
+        return self.getComponent("TransformComponent").scale
+    
+    def getRotation(self):
+        return self.getComponent("TransformComponent").rotation
+    
+    def setPosition(self, x, y):
+        self.getComponent("TransformComponent").position = Vector2(x, y)
+    
+    def setScale(self, value):
+        self.getComponent("TransformComponent").scale = value
+    
+    def setRotation(self, value):
+        self.getComponent("TransformComponent").rotation = value
     
     def engineUpdate(self):
         # Update children
