@@ -10,7 +10,10 @@ class Tree(object):
         newNode = engine.Node(parent)
         newNode.name = nodeName
         parent.getChildren()[nodeName] = newNode
-        # TODO: Add components
+        # Add components
+        for compName in nodeData["components"]:
+            newNode.addComponent(getattr(engine.gameComponents, compName))
+
         # Add children
         for i, v in nodeData["children"].items():
             self.__loadSceneNode(i, v, newNode)

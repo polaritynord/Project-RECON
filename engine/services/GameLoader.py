@@ -2,6 +2,7 @@ import engine
 from raylib import *
 from os.path import join
 from json import load
+from importlib import import_module
 
 class GameLoader:
     def loadGame(directory):
@@ -14,6 +15,7 @@ class GameLoader:
             SetExitKey(0)
         
         engine.GAME_NAME = directory
+        engine.gameComponents = import_module(f"{directory}.components")
     
     def runGame():
         while not WindowShouldClose():

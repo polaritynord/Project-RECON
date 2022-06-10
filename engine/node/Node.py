@@ -8,9 +8,19 @@ class Node(object):
     
     def engineUpdate(self):
         # Update children
-        for i, v in self.__children.items():
+        for i, v in self.getChildren().items():
             v.engineUpdate()
+        
+        # Update components
+        for i, v in self.getComponents().items():
+            # Engine related calls
+            if hasattr(v, "engineUpdate"):
+                v.engineUpdate()
+            # Calls based on component type
+            if v.type == "ScriptComponent" and hasattr(v, "eventUpdate"):
+                v.eventUpdate()
     
+    # Node-related methods
     def getChildren(self):
         return self.__children
     
@@ -23,3 +33,26 @@ class Node(object):
     
     def removeNode(self, nodeName):
         del self.__children[nodeName]
+
+    # Component-related methods
+    def getComponent(self, compName):
+        return self.__components[compName]
+    
+    def getComponents(self):
+        return self.__components
+    
+    def hasComponentName(self, compName):
+        return compName in self.__components.keys()
+    
+    def hasComponent(self, compType):
+        for i, v in self.getComponents():
+            if v.type == compType:
+                return True
+        return False
+    
+    def addComponent(self, compObj):
+        newComp = compObj(self)
+        self.__components[newComp.name] = newComp
+    
+    def removeComponent(self, compName):
+        del self.__components[compName]
