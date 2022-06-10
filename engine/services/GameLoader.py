@@ -9,10 +9,18 @@ class GameLoader:
         with open(join(directory, "config.json")) as conf_file:
             conf_data = load(conf_file)
 
+            # Setup window
             SetTargetFPS(60)
             SetConfigFlags(FLAG_WINDOW_RESIZABLE)
             InitWindow(conf_data["win_size"][0], conf_data["win_size"][1], conf_data["title"].encode())
             SetExitKey(0)
+
+            # Set icon
+            if conf_data["icon_path"] == "":
+                return
+            iconImg = LoadImage(conf_data["icon_path"].encode())
+            SetWindowIcon(iconImg)
+            UnloadImage(iconImg)
         
         engine.GAME_NAME = directory
         engine.gameComponents = import_module(f"{directory}.components")
