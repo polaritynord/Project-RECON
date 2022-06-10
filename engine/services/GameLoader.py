@@ -1,3 +1,4 @@
+import engine
 from raylib import *
 from os.path import join
 from json import load
@@ -14,6 +15,7 @@ class GameLoader:
     
     def runGame():
         while not WindowShouldClose():
+            engine.tree.engineUpdate()
             BeginDrawing()
             ClearBackground((16, 49, 120))
             EndDrawing()
