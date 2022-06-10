@@ -24,6 +24,7 @@ class GameLoader:
         
         engine.GAME_NAME = directory
         engine.gameComponents = import_module(f"{directory}.components")
+        engine.assets.loadFont("default", join("engine", "resources", "RobotoMono-Regular.ttf"))
     
     def runGame():
         while not WindowShouldClose():
@@ -33,3 +34,4 @@ class GameLoader:
             EndDrawing()
         
         CloseWindow()
+        engine.assets.unloadAll()

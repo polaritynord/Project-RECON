@@ -5,5 +5,7 @@ GAME_NAME = ""
 
 gameComponents = None
 
+# Services
 gameLoader = GameLoader
+assets = AssetManager()
 tree = Tree()
