@@ -24,9 +24,10 @@ class Node(object):
             # Engine related calls
             if hasattr(v, "engineUpdate"):
                 v.engineUpdate()
+            
             # Calls based on component type
-            if v.type == "ScriptComponent" and hasattr(v, "eventUpdate"):
-                v.eventUpdate()
+            if (v.type == "ScriptComponent" or v.type == "UIComponent") and hasattr(v, "eventUpdate"):
+                v.eventUpdate(self)
     
     # Node-related methods
     def getChildren(self):
@@ -60,6 +61,8 @@ class Node(object):
     
     def addComponent(self, compObj):
         newComp = compObj(self)
+        if hasattr(newComp, "eventSetup"):
+            newComp.eventSetup(self)
         self.__components[newComp.name] = newComp
     
     def removeComponent(self, compName):

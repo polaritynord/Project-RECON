@@ -3,9 +3,9 @@
         "children": {
             "Node2": {
                 "children": {},
-                "components": ["TestScript"]
+                "components": []
             }
         },
-        "components": []
+        "components": ["TestUI"]
     }
 }
