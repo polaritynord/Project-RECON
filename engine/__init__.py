@@ -6,6 +6,7 @@ GAME_NAME = ""
 gameComponents = None
 
 # Services
+uiRenderer = UIRenderer()
 gameLoader = GameLoader
 assets = AssetManager()
 tree = Tree()

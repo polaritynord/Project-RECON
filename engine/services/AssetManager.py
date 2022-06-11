@@ -11,6 +11,9 @@ class AssetManager:
         UnloadFont(self.__fonts[name])
         del self.__fonts[name]
     
+    def getFont(self, name):
+        return self.__fonts[name]
+    
     def unloadAll(self):
         # Unload fonts
         for i in self.__fonts.copy():

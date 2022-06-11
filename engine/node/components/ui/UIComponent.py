@@ -10,7 +10,9 @@ class UIComponent(Component):
         self.__canvases = {}
     
     def addCanvas(self, name, pos=Vector2(), enabled=True, eventUpdate=None):
-        self.__canvases[name] = Canvas(pos, enabled, eventUpdate)
+        canvas = Canvas(self, pos, enabled, eventUpdate)
+        self.__canvases[name] = canvas
+        return canvas
     
     def engineUpdate(self):
         for i, v in self.__canvases.items():

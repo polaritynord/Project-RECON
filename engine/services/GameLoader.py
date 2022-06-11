@@ -31,6 +31,7 @@ class GameLoader:
             engine.tree.engineUpdate()
             BeginDrawing()
             ClearBackground((16, 49, 120))
+            engine.uiRenderer.engineUpdate()
             EndDrawing()
         
         CloseWindow()

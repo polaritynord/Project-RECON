@@ -2,7 +2,8 @@ from engine import *
 
 class TestUI(UIComponent):
     def eventSetup(self, node):
-        self.addCanvas("canvas", eventUpdate=self.test)
+        canvas = self.addCanvas("canvas", eventUpdate=self.test)
+        canvas.addTextLabel("text", size=24)
     
     def test(self, canvas):
-        print("aa")
+        canvas.getElement("text").text = f"FPS: {engine.GetFPS()}"
