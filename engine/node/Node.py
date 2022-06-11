@@ -10,24 +10,10 @@ class Node(object):
         self.addComponent(TransformComponent)
     
     # TransformComponent related stuff
-    def getPosition(self):
-        return self.getComponent("TransformComponent").position
+    def getTransform(self):
+        return self.getComponent("TransformComponent")
     
-    def getScale(self):
-        return self.getComponent("TransformComponent").scale
-    
-    def getRotation(self):
-        return self.getComponent("TransformComponent").rotation
-    
-    def setPosition(self, x, y):
-        self.getComponent("TransformComponent").position = Vector2(x, y)
-    
-    def setScale(self, value):
-        self.getComponent("TransformComponent").scale = value
-    
-    def setRotation(self, value):
-        self.getComponent("TransformComponent").rotation = value
-    
+    # Engine update
     def engineUpdate(self):
         # Update children
         for i, v in self.getChildren().items():
