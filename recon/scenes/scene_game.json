@@ -1,11 +1,6 @@
 {
-    "Node1": {
-        "children": {
-            "Node2": {
-                "children": {},
-                "components": []
-            }
-        },
-        "components": ["TestUI"]
+    "Game UI": {
+        "children": {},
+        "components": ["GameUI"]
     }
 }

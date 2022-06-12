@@ -14,6 +14,9 @@ class UIComponent(Component):
         self.__canvases[name] = canvas
         return canvas
     
+    def getCanvas(self, name):
+        return self.__canvases[name]
+    
     def engineUpdate(self):
         for i, v in self.__canvases.items():
             if not v.enabled:
