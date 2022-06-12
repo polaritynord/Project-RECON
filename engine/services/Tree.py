@@ -28,7 +28,7 @@ class Tree(object):
     
     def engineUpdate(self):
         # Update children
-        for i, v in self.__children.items():
+        for i, v in self.getChildren().copy().items():
             v.engineUpdate()
 
     def getChildren(self):

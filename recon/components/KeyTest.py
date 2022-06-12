@@ -6,5 +6,6 @@ class KeyTest(ScriptComponent):
         keyboard.addAction("action1", [KEY_SPACE, KEY_F11])
 
     def eventUpdate(self, node):
-        if keyboard.isActionUp("action1"):
-            print(randint(0, 5))
+        print("please kill me :)")
+        if keyboard.isActionPressed("action1"):
+            node.remove()

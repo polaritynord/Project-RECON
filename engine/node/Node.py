@@ -16,11 +16,11 @@ class Node(object):
     # Engine update
     def engineUpdate(self):
         # Update children
-        for i, v in self.getChildren().items():
+        for i, v in self.getChildren().copy().items():
             v.engineUpdate()
         
         # Update components
-        for i, v in self.getComponents().items():
+        for i, v in self.getComponents().copy().items():
             # Engine related calls
             if hasattr(v, "engineUpdate"):
                 v.engineUpdate()
@@ -67,3 +67,6 @@ class Node(object):
     
     def removeComponent(self, compName):
         del self.__components[compName]
+    
+    def remove(self):
+        self.parent.removeNode(self.name)
