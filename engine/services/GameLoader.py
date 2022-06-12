@@ -11,7 +11,7 @@ class GameLoader:
 
             # Setup window
             SetTargetFPS(60)
-            SetConfigFlags(FLAG_WINDOW_RESIZABLE)
+            SetConfigFlags(FLAG_MSAA_4X_HINT)
             InitWindow(conf_data["win_size"][0], conf_data["win_size"][1], conf_data["title"].encode())
             SetExitKey(0)
 

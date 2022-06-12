@@ -5,14 +5,14 @@ from pyray import Vector2
 
 class UIRenderer:
     def __init__(self):
-        self.textLabels = []
+        self.elements = []
     
     def engineUpdate(self):
-        for element in self.textLabels:
+        for element in self.elements:
             # Calculate offset
             canvas = element.parent
             parent_pos = canvas.parent.parent.getTransform().position
             offset = Vector2(canvas.pos.x + parent_pos.x, canvas.pos.y + parent_pos.y)
 
             element.engineRender(offset)
-        self.textLabels = []
+        self.elements = []

@@ -17,6 +17,7 @@ class Canvas:
     def getElement(self, name):
         return self.__elements[name]
 
+    # Element adding methods
     def addTextLabel(
         self, name, text="Sample", pos=Vector2(), font="default", visible=True, size=0,
         spacing=1, color=BLACK
@@ -24,6 +25,11 @@ class Canvas:
         element = TextLabel(self, text, pos, font, visible, size, spacing, color)
         self.__elements[name] = element
     
+    def addRect(self, name, pos=Vector2(), size=Vector2(10, 10), color=BLACK, curve=0, outline=0):
+        element = Rect(self, pos, size, color, curve, outline)
+        self.__elements[name] = element
+    
+    # Update & render elements
     def engineRender(self):
         # Custom update call
         if self.eventUpdate != None:
@@ -32,4 +38,4 @@ class Canvas:
         # Render elements
         for i, v in self.__elements.items():
             if not v.visible: continue
-            engine.uiRenderer.textLabels.append(v)
+            engine.uiRenderer.elements.append(v)
