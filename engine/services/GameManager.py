@@ -4,7 +4,7 @@ from os.path import join
 from json import load
 from importlib import import_module
 
-class GameLoader:
+class GameManager:
     def loadGame(directory):
         with open(join(directory, "config.json")) as conf_file:
             conf_data = load(conf_file)

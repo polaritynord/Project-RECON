@@ -7,6 +7,7 @@ gameComponents = None
 
 # Services
 uiRenderer = UIRenderer()
-gameLoader = GameLoader
+gameManager = GameManager
 assets = AssetManager()
 tree = Tree()
+keyboard = Keyboard()

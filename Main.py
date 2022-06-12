@@ -1,9 +1,9 @@
 from engine import *
 
 def main():
-    gameLoader.loadGame("recon")
+    gameManager.loadGame("recon")
     tree.loadScene("scene_game")
-    gameLoader.runGame()
+    gameManager.runGame()
 
 if __name__ == "__main__":
     main()

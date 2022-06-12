@@ -8,6 +8,7 @@ class GameUI(UIComponent):
         debug = self.addCanvas("debug", enabled=False, eventUpdate=self.updateDebug)
         debug.addTextLabel("fps", color=(240, 240, 240, 140), size=18)
         debug.addTextLabel("mouse_pos", color=(240, 240, 240, 140), size=18, pos=Vector2(0, 15))
+        debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
     
     def eventUpdate(self, node):
         self.toggleDebug()
