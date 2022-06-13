@@ -12,10 +12,16 @@ class GameUI(UIComponent):
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
         testCanvas = self.addCanvas("test_canvas")
-        testCanvas.addProgressBar("bar")
+        testCanvas.addProgressBar(
+            "bar", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2), begin="middle"
+        )
     
     def eventUpdate(self, node):
         self.toggleDebug()
+        if IsMouseButtonPressed(0):
+            self.getCanvas("test_canvas").getElement("bar").value += 0.1
+        elif IsMouseButtonPressed(1):
+            self.getCanvas("test_canvas").getElement("bar").value -= 0.1
 
     # Debug menu methods
     def toggleDebug(self):
