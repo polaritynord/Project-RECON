@@ -2,10 +2,5 @@
     "Game UI": {
         "children": {},
         "components": ["GameUI"]
-    },
-
-    "Test": {
-        "children": {},
-        "components": ["KeyTest"]
     }
 }

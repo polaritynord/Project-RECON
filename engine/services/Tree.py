@@ -21,9 +21,9 @@ class Tree(object):
 
     def loadScene(self, sceneName):
         with open(join(engine.GAME_NAME, "scenes", sceneName + ".json")) as sc_file:
-            sc_data = load(sc_file)
+            scData = load(sc_file)
 
-            for i, v in sc_data.items():
+            for i, v in scData.items():
                 self.__loadSceneNode(i, v, self)
     
     def engineUpdate(self):

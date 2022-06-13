@@ -29,13 +29,21 @@ class Canvas:
         element = Rect(self, pos, size, color, curve, outline)
         self.__elements[name] = element
     
+    def addButton(
+        self, name, pos=Vector2(), size=Vector2(55, 125), text="Button", font="default",
+        baseColor=(240, 240, 240, 255), textColor=(25, 25, 25, 255), enabled=True,
+        curve=0, outline=0
+    ):
+        element = Button(self, pos, size, text, font, baseColor, textColor, enabled, curve, outline)
+        self.__elements[name] = element
+    
     # Update & render elements
     def engineRender(self):
         # Custom update call
         if self.eventUpdate != None:
             self.eventUpdate(self)
 
-        # Render elements
+        # Update elements & add to render queue
         for i, v in self.__elements.items():
             if not v.visible: continue
             engine.uiRenderer.elements.append(v)
