@@ -1,7 +1,9 @@
 from engine import *
+from random import randint
 
 class GameUI(UIComponent):
     def eventSetup(self, node):
+        keyboard.addAction("action1", KEY_SPACE)
         """Debug menu canvas
         * contains some useful monitors.
         """
@@ -12,9 +14,15 @@ class GameUI(UIComponent):
 
         testCanvas = self.addCanvas("test_canvas")
         testCanvas.addButton("button")
+
+        self.temp = 0
     
     def eventUpdate(self, node):
         self.toggleDebug()
+        if keyboard.isActionPressed("action1"):
+            self.temp += 10
+        
+        self.getCanvas("test_canvas").getElement("button").text =  str(self.temp)
 
     # Debug menu methods
     def toggleDebug(self):

@@ -14,9 +14,9 @@ class TextLabel:
         self.color = color
     
     def engineRender(self, offset):
-        font_dat = engine.assets.getFont(self.font)
-        size = self.size if self.size > 0 else font_dat.baseSize
+        fontDat = engine.assets.getFont(self.font)
+        size = self.size if self.size > 0 else fontDat.baseSize
         # Set position (offseted by both canvas & node)
-        new_pos = Vector2(self.pos.x + offset.x, self.pos.y + offset.y)
+        newPos = Vector2(self.pos.x + offset.x, self.pos.y + offset.y)
 
-        DrawTextEx(font_dat, self.text.encode(), new_pos, size, self.spacing, self.color)
+        DrawTextEx(fontDat, self.text.encode(), newPos, size, self.spacing, self.color)

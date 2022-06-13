@@ -30,11 +30,14 @@ class Canvas:
         self.__elements[name] = element
     
     def addButton(
-        self, name, pos=Vector2(), size=Vector2(55, 125), text="Button", font="default",
+        self, name, pos=Vector2(), size=Vector2(125, 55), text="Button", font="default",
         baseColor=(240, 240, 240, 255), textColor=(25, 25, 25, 255), enabled=True,
-        curve=0, outline=0
+        curve=0, outline=0, textSize=0, spacing=1
     ):
-        element = Button(self, pos, size, text, font, baseColor, textColor, enabled, curve, outline)
+        element = Button(
+            self, pos, size, text, font, baseColor, textColor, enabled, curve, outline, textSize,
+            spacing
+        )
         self.__elements[name] = element
     
     # Update & render elements
