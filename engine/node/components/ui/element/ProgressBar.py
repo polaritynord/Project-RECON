@@ -25,13 +25,6 @@ class ProgressBar:
 
         # Horizontal bar
         if self.type == "h":
-            # Calculate bar position with begin attr
-            """
-            if self.begin == "left":
-                barPos = newPos
-            elif self.begin == "right":
-                barPos = Vector2(newPos.x + self.size.x, newPos.y)"""
-
             # Background
             DrawRectangleRec(rec, self.backColor)
 
@@ -49,9 +42,25 @@ class ProgressBar:
             elif self.begin == "right":
                 DrawRectangleV((newPos.x + self.size.x - barW, newPos.y), (barW, self.size.y), self.foreColor)
             elif self.begin == "middle":
-                DrawRectangleV((newPos.x + (self.size.x - barW)/2, newPos.y), (barW, self.size.y), self.foreColor)
-            
+                DrawRectangleV((newPos.x + (self.size.x - barW)/2, newPos.y), (barW, self.size.y), self.foreColor)   
         else:
-            # TODO: Vertical bar
-            pass
+            # Vertical type simply swaps the x and y to make it vertical.
+            # Background
+            DrawRectangleV(newPos, (self.size.y, self.size.x), self.backColor)
+
+            # Bar height calculation
+            val = self.value
+            if val > 1:
+                val = 1
+            elif val < 0:
+                val = 0
+            barH = self.size.x * val
+
+            # Foreground
+            if self.begin == "left":
+                DrawRectangleV(newPos, (self.size.y, barH), self.foreColor)
+            elif self.begin == "right":
+                DrawRectangleV((newPos.x, newPos.y + (self.size.x - barH)), (self.size.y, barH), self.foreColor)
+            elif self.begin == "middle":
+                DrawRectangleV((newPos.x, newPos.y + (self.size.x - barH)/2), (self.size.y, barH), self.foreColor)
             

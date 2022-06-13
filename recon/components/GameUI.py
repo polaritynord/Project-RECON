@@ -13,7 +13,8 @@ class GameUI(UIComponent):
 
         testCanvas = self.addCanvas("test_canvas")
         testCanvas.addProgressBar(
-            "bar", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2), begin="middle"
+            "bar", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
+            type="v", begin="middle"
         )
     
     def eventUpdate(self, node):
