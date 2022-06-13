@@ -30,16 +30,23 @@ class Button:
             return
         mouse = GetMousePosition()
         touch = mouse.x > self.pos.x and mouse.x - self.size.x < self.pos.x and mouse.y > self.pos.y and mouse.y - self.size.y < self.pos.y
+        click = touch and IsMouseButtonDown(0)
+
+        bc = self.baseColor
+        fc = self.focusColor
+        cc = self.clickColor
+        tc = self.textColor
+
+        self.__realBaseColor = self.baseColor
+        self.__realTextColor = self.textColor
 
         if touch:
-            bc = self.baseColor
-            fc = self.focusColor
             self.__realBaseColor = (abs(bc[0]-fc), abs(bc[1]-fc), abs(bc[2]-fc), bc[3])
-
-            tc = self.textColor
             self.__realTextColor = (abs(tc[0]-fc), abs(tc[1]-fc), abs(tc[2]-fc), tc[3])
-        else:
-            self.__realBaseColor = self.baseColor
+        
+        if click:
+            self.__realBaseColor = (abs(bc[0]-cc), abs(bc[1]-cc), abs(bc[2]-cc), bc[3])
+            self.__realTextColor = (abs(tc[0]-cc), abs(tc[1]-cc), abs(tc[2]-cc), tc[3])
     
     def engineRender(self, offset):
         # Set position (offseted by both canvas & node)
