@@ -3,7 +3,6 @@ from random import randint
 
 class GameUI(UIComponent):
     def eventSetup(self, node):
-        keyboard.addAction("action1", KEY_SPACE)
         """Debug menu canvas
         * contains some useful monitors.
         """
@@ -13,16 +12,12 @@ class GameUI(UIComponent):
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
         testCanvas = self.addCanvas("test_canvas")
-        testCanvas.addButton("button")
-
-        self.temp = 0
+        testCanvas.addButton(
+            "button", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2), curve=0.25
+        )
     
     def eventUpdate(self, node):
         self.toggleDebug()
-        if keyboard.isActionPressed("action1"):
-            self.temp += 10
-        
-        self.getCanvas("test_canvas").getElement("button").text =  str(self.temp)
 
     # Debug menu methods
     def toggleDebug(self):

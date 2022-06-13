@@ -32,11 +32,11 @@ class Canvas:
     def addButton(
         self, name, pos=Vector2(), size=Vector2(125, 55), text="Button", font="default",
         baseColor=(240, 240, 240, 255), textColor=(25, 25, 25, 255), enabled=True,
-        curve=0, outline=0, textSize=0, spacing=1
+        curve=0, outline=0, textSize=0, spacing=1, focusColor=25, clickColor=40
     ):
         element = Button(
             self, pos, size, text, font, baseColor, textColor, enabled, curve, outline, textSize,
-            spacing
+            spacing, focusColor, clickColor
         )
         self.__elements[name] = element
     
@@ -48,5 +48,8 @@ class Canvas:
 
         # Update elements & add to render queue
         for i, v in self.__elements.items():
+            if hasattr(v, "engineUpdate"):
+                v.engineUpdate()
+            
             if not v.visible: continue
             engine.uiRenderer.elements.append(v)
