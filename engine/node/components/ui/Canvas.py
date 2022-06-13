@@ -41,6 +41,13 @@ class Canvas:
         )
         self.__elements[name] = element
     
+    def addProgressBar(
+        self, name, pos=Vector2(), size=Vector2(125, 12), color=SKYBLUE, value=1,
+        type="h", begin="left"
+    ):
+        element = ProgressBar(name, self, pos, size, color, value, type, begin)
+        self.__elements[name] = element
+    
     # Update & render elements
     def engineRender(self):
         # Custom update call

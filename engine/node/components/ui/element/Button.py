@@ -57,6 +57,8 @@ class Button:
             self.triggerPress()
     
     def engineRender(self, offset):
+        if not self.visible:
+            return
         # Set position (offseted by both canvas & node)
         newPos = Vector2(self.pos.x + offset.x, self.pos.y + offset.y)
         rec = (newPos.x, newPos.y, self.size.x, self.size.y)

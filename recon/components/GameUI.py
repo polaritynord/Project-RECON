@@ -12,13 +12,7 @@ class GameUI(UIComponent):
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
         testCanvas = self.addCanvas("test_canvas")
-        testCanvas.addButton(
-            "test", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2), curve=0.25,
-            triggerPress=self.triggerPressTest
-        )
-    
-    def triggerPressTest(self):
-        print("nice")
+        testCanvas.addProgressBar("bar")
     
     def eventUpdate(self, node):
         self.toggleDebug()

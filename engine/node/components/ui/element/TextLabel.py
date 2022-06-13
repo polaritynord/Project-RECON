@@ -15,6 +15,8 @@ class TextLabel:
         self.color = color
     
     def engineRender(self, offset):
+        if not self.visible:
+            return
         fontDat = engine.assets.getFont(self.font)
         size = self.size if self.size > 0 else fontDat.baseSize
         # Set position (offseted by both canvas & node)
