@@ -2,7 +2,8 @@ from raylib import *
 from pyray import Vector2
 
 class Rect:
-    def __init__(self, parent, pos, size, color, curve, outline):
+    def __init__(self, name, parent, pos, size, color, curve, outline):
+        self.name = name
         self.parent = parent
         self.pos = pos
         self.size = size

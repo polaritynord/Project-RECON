@@ -22,21 +22,22 @@ class Canvas:
         self, name, text="Sample", pos=Vector2(), font="default", visible=True, size=0,
         spacing=1, color=BLACK
     ):
-        element = TextLabel(self, text, pos, font, visible, size, spacing, color)
+        element = TextLabel(name, self, text, pos, font, visible, size, spacing, color)
         self.__elements[name] = element
     
     def addRect(self, name, pos=Vector2(), size=Vector2(10, 10), color=BLACK, curve=0, outline=0):
-        element = Rect(self, pos, size, color, curve, outline)
+        element = Rect(name, self, pos, size, color, curve, outline)
         self.__elements[name] = element
     
     def addButton(
         self, name, pos=Vector2(), size=Vector2(125, 55), text="Button", font="default",
         baseColor=(240, 240, 240, 255), textColor=(25, 25, 25, 255), enabled=True,
-        curve=0, outline=0, textSize=0, spacing=1, focusColor=25, clickColor=40
+        curve=0, outline=0, textSize=0, spacing=1, focusColor=25, clickColor=40,
+        triggerPress=None
     ):
         element = Button(
-            self, pos, size, text, font, baseColor, textColor, enabled, curve, outline, textSize,
-            spacing, focusColor, clickColor
+            name, self, pos, size, text, font, baseColor, textColor, enabled, curve, outline, textSize,
+            spacing, focusColor, clickColor, triggerPress
         )
         self.__elements[name] = element
     

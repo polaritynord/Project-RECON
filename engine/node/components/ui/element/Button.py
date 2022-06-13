@@ -4,9 +4,10 @@ from pyray import Vector2
 
 class Button:
     def __init__(
-        self, parent, pos, size, text, font, baseColor, textColor, enabled,
-        curve, outline, textSize, spacing, focusColor, clickColor
+        self, name, parent, pos, size, text, font, baseColor, textColor, enabled,
+        curve, outline, textSize, spacing, focusColor, clickColor, triggerPress
     ):
+        self.name = name
         self.parent = parent
         self.pos = pos
         self.size = size
@@ -21,6 +22,7 @@ class Button:
         self.spacing = spacing
         self.focusColor = focusColor
         self.clickColor = clickColor
+        self.triggerPress = triggerPress
         self.__realBaseColor = baseColor
         self.__realTextColor = textColor
         self.visible = True
@@ -32,6 +34,7 @@ class Button:
         touch = mouse.x > self.pos.x and mouse.x - self.size.x < self.pos.x and mouse.y > self.pos.y and mouse.y - self.size.y < self.pos.y
         click = touch and IsMouseButtonDown(0)
 
+        # Visual effects
         bc = self.baseColor
         fc = self.focusColor
         cc = self.clickColor
@@ -47,6 +50,11 @@ class Button:
         if click:
             self.__realBaseColor = (abs(bc[0]-cc), abs(bc[1]-cc), abs(bc[2]-cc), bc[3])
             self.__realTextColor = (abs(tc[0]-cc), abs(tc[1]-cc), abs(tc[2]-cc), tc[3])
+
+        # Trigger button press
+        node = self.parent.parent
+        if (touch and IsMouseButtonReleased(0)) and self.triggerPress != None:
+            self.triggerPress()
     
     def engineRender(self, offset):
         # Set position (offseted by both canvas & node)
