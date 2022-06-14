@@ -14,9 +14,16 @@ class GameUI(UIComponent):
         """Testing canvas"""
         assets.loadTexture("square", "recon/resources/square.png")
         test = self.addCanvas("test")
+        test.addTexture(
+            "texture", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
+            texture="square"
+        )
         
     def eventUpdate(self, node):
         self.toggleDebug()
+        self.getCanvas("test").getElement("texture").rotation += 1
+        self.getCanvas("test").getElement("texture").scale.x += 0.05
+        self.getCanvas("test").getElement("texture").scale.y += 0.05
 
     # Debug menu methods
     def toggleDebug(self):

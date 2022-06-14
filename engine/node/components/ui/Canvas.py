@@ -48,6 +48,10 @@ class Canvas:
         element = ProgressBar(name, self, pos, size, backColor, foreColor, value, type, begin)
         self.__elements[name] = element
     
+    def addTexture(self, name, pos=Vector2(), texture=None, scale=Vector2(1, 1), rotation=0):
+        element = Texture(name, self, pos, texture, scale, rotation)
+        self.__elements[name] = element
+    
     # Update & render elements
     def engineRender(self):
         # Custom update call
