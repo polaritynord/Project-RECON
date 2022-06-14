@@ -18,12 +18,13 @@ class GameUI(UIComponent):
             "texture", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
             texture="square"
         )
+        self.temp = False
+        test.addCheckbox("checkbox", curve=0.15)
         
     def eventUpdate(self, node):
         self.toggleDebug()
         self.getCanvas("test").getElement("texture").rotation += 1
-        self.getCanvas("test").getElement("texture").scale.x += 0.05
-        self.getCanvas("test").getElement("texture").scale.y += 0.05
+        print(self.getCanvas("test").getElement("checkbox").value)
 
     # Debug menu methods
     def toggleDebug(self):

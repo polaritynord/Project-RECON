@@ -52,6 +52,13 @@ class Canvas:
         element = Texture(name, self, pos, texture, scale, rotation)
         self.__elements[name] = element
     
+    def addCheckbox(
+        self, name, pos=Vector2(), size=Vector2(50, 50), value=False, outline=3, color=LIGHTGRAY,
+        curve=0
+    ):
+        element = Checkbox(name, self, pos, size, value, outline, color, curve)
+        self.__elements[name] = element
+    
     # Update & render elements
     def engineRender(self):
         # Custom update call

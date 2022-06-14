@@ -19,7 +19,7 @@ class AssetManager:
         self.__textures[name] = LoadTexture(path.encode())
     
     def unloadTexture(self, name):
-        UnloadTexture(self.___textures[name])
+        UnloadTexture(self.__textures[name])
         del self.__textures[name]
     
     def getTexture(self, name):
