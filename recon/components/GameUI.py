@@ -11,20 +11,8 @@ class GameUI(UIComponent):
         debug.addTextLabel("mouse_pos", color=(240, 240, 240, 140), size=18, pos=Vector2(0, 15))
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
-        """Testing canvas"""
-        assets.loadTexture("square", "recon/resources/square.png")
-        test = self.addCanvas("test")
-        test.addTexture(
-            "texture", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
-            texture="square"
-        )
-        self.temp = False
-        test.addCheckbox("checkbox", curve=0.15)
-        
     def eventUpdate(self, node):
         self.toggleDebug()
-        self.getCanvas("test").getElement("texture").rotation += 1
-        print(self.getCanvas("test").getElement("checkbox").value)
 
     # Debug menu methods
     def toggleDebug(self):

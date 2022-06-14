@@ -71,4 +71,4 @@ class Canvas:
                 v.engineUpdate()
             
             if not v.visible: continue
-            engine.uiRenderer.elements.append(v)
+            engine.renderer.elements.append(v)
