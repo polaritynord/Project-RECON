@@ -11,18 +11,12 @@ class GameUI(UIComponent):
         debug.addTextLabel("mouse_pos", color=(240, 240, 240, 140), size=18, pos=Vector2(0, 15))
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
-        testCanvas = self.addCanvas("test_canvas")
-        testCanvas.addProgressBar(
-            "bar", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
-            type="v", begin="middle"
-        )
-    
+        """Testing canvas"""
+        assets.loadTexture("square", "recon/resources/square.png")
+        test = self.addCanvas("test")
+        
     def eventUpdate(self, node):
         self.toggleDebug()
-        if IsMouseButtonPressed(0):
-            self.getCanvas("test_canvas").getElement("bar").value += 0.1
-        elif IsMouseButtonPressed(1):
-            self.getCanvas("test_canvas").getElement("bar").value -= 0.1
 
     # Debug menu methods
     def toggleDebug(self):

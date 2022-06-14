@@ -42,7 +42,7 @@ class Canvas:
         self.__elements[name] = element
     
     def addProgressBar(
-        self, name, pos=Vector2(), size=Vector2(125, 25), backColor=RED, foreColor=SKYBLUE, value=1,
+        self, name, pos=Vector2(), size=Vector2(125, 25), backColor=(20, 20, 20, 255), foreColor=SKYBLUE, value=1,
         type="h", begin="left"
     ):
         element = ProgressBar(name, self, pos, size, backColor, foreColor, value, type, begin)
