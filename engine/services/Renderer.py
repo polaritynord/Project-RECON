@@ -12,8 +12,7 @@ class Renderer:
         for particle in self.particles:
             # Calculate offset
             node = particle.parent.parent
-            parentPos = node.getTransform().position
-            offset = Vector2(parentPos.x, parentPos.y)
+            offset = node.getTransform().position
 
             particle.engineRender(offset)
         self.particles = []

@@ -1,6 +1,11 @@
 {
-    "Game UI": {
+    "GameUI": {
         "children": {},
         "components": ["GameUI"]
+    },
+    
+    "ParticleTest": {
+        "children": {},
+        "components":["TestParticle"]
     }
 }

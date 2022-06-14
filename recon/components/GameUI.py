@@ -1,5 +1,4 @@
 from engine import *
-from random import randint
 
 class GameUI(UIComponent):
     def eventSetup(self, node):

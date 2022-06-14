@@ -26,7 +26,7 @@ class Node(object):
                 v.engineUpdate()
             
             # Calls based on component type
-            if (v.type == "ScriptComponent" or v.type == "UIComponent") and hasattr(v, "eventUpdate"):
+            if hasattr(v, "eventUpdate"):
                 v.eventUpdate(self)
     
     # Node-related methods
