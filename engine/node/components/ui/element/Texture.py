@@ -26,5 +26,3 @@ class Texture:
         origin = (fw/2, fh/2)
 
         DrawTexturePro(textureDat, source, dest, origin, self.rotation, WHITE)
-
-        #DrawTextureEx(textureDat, newPos, self.rotation, self.scale, WHITE)
