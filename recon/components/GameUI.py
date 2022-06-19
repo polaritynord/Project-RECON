@@ -2,6 +2,7 @@ from engine import *
 
 class GameUI(UIComponent):
     def eventSetup(self, node):
+        assets.loadTexture("test", "recon/resources/icon.png")
         """Debug menu canvas
         * contains some useful monitors.
         """
@@ -10,8 +11,21 @@ class GameUI(UIComponent):
         debug.addTextLabel("mouse_pos", color=(240, 240, 240, 140), size=18, pos=Vector2(0, 15))
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
+        t = self.addCanvas("t")
+        t.addTexture(
+            "a",
+            pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
+            texture="test"
+        )
+
     def eventUpdate(self, node):
         self.toggleDebug()
+        if IsKeyDown(KEY_RIGHT):
+            self.getCanvas("t").getElement("a").scale.x += 0.1
+            self.getCanvas("t").getElement("a").scale.y += 0.1
+        if IsKeyDown(KEY_LEFT):
+            self.getCanvas("t").getElement("a").scale.x -= 0.1
+            self.getCanvas("t").getElement("a").scale.y -= 0.1
 
     # Debug menu methods
     def toggleDebug(self):

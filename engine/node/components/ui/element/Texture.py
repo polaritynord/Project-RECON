@@ -13,7 +13,7 @@ class Texture:
         self.visible = True
     
     def engineRender(self, offset):
-        if not self.visible:
+        if not self.visible or self.texture == None:
             return
         # Set position (offseted by both canvas & node)
         textureDat = engine.assets.getTexture(self.texture)
@@ -21,7 +21,7 @@ class Texture:
 
         fw = textureDat.width * self.scale.x
         fh = textureDat.height * self.scale.y
-        source = (0, 0, fw, fh)
+        source = (0, 0, textureDat.width, textureDat.height)
         dest = (newPos.x, newPos.y, fw, fh)
         origin = (fw/2, fh/2)
 
