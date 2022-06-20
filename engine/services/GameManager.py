@@ -35,5 +35,5 @@ class GameManager:
             engine.renderer.engineRenderUi()
             EndDrawing()
         
-        CloseWindow()
         engine.assets.unloadAll()
+        CloseWindow()

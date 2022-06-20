@@ -12,20 +12,10 @@ class GameUI(UIComponent):
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
         t = self.addCanvas("t")
-        t.addTexture(
-            "a",
-            pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2),
-            texture="test"
-        )
+        t.addSlider("test")
 
     def eventUpdate(self, node):
         self.toggleDebug()
-        if IsKeyDown(KEY_RIGHT):
-            self.getCanvas("t").getElement("a").scale.x += 0.1
-            self.getCanvas("t").getElement("a").scale.y += 0.1
-        if IsKeyDown(KEY_LEFT):
-            self.getCanvas("t").getElement("a").scale.x -= 0.1
-            self.getCanvas("t").getElement("a").scale.y -= 0.1
 
     # Debug menu methods
     def toggleDebug(self):

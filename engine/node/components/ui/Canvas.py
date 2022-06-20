@@ -59,6 +59,13 @@ class Canvas:
         element = Checkbox(name, self, pos, size, value, outline, color, curve)
         self.__elements[name] = element
     
+    def addSlider(
+        self, name, pos=Vector2(), value=0.2, baseWidth=100, baseHeight=15, baseColor=(200, 200, 200, 255),
+        sliderColor=(225, 225, 225, 255), sliderWidth=7, sliderHeight=18
+    ):
+        element = Slider(name, self, pos, value, baseWidth, baseHeight, baseColor, sliderColor, sliderWidth, sliderHeight)
+        self.__elements[name] = element
+    
     # Update & render elements
     def engineRender(self):
         # Custom update call
