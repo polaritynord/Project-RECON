@@ -22,4 +22,20 @@ class Slider:
         pass
 
     def engineRender(self, offset):
-        print("nice")
+        if not self.visible:
+            return
+        
+        # Set position (offseted by both canvas & node)
+        newPos = Vector2(self.pos.x + offset.x, self.pos.y + offset.y)
+
+        # Base rec
+        baseRec = (self.pos.x, self.pos.y, self.baseWidth, self.baseHeight)
+        # Slider rec
+        sliderX = self.pos.x + self.value * self.baseWidth
+        sliderY = self.pos.y - abs(self.baseHeight - self.sliderHeight)/2
+        sliderRec = (sliderX, sliderY, self.sliderWidth, self.sliderHeight)
+
+        # Draw base
+        DrawRectangleRec(baseRec, self.baseColor)
+        # Draw slider
+        DrawRectangleRec(sliderRec, self.sliderColor)

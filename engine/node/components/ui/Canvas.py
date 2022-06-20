@@ -1,7 +1,6 @@
 import engine
 from engine.node.components.ui.element import *
 from pyray import Vector2
-from raylib import BLACK
 
 class Canvas:
     def __init__(self, parent, pos, enabled, eventUpdate):
@@ -60,8 +59,8 @@ class Canvas:
         self.__elements[name] = element
     
     def addSlider(
-        self, name, pos=Vector2(), value=0.2, baseWidth=100, baseHeight=15, baseColor=(200, 200, 200, 255),
-        sliderColor=(225, 225, 225, 255), sliderWidth=7, sliderHeight=18
+        self, name, pos=Vector2(), value=0.2, baseWidth=155, baseHeight=6.5, baseColor=RED,
+        sliderColor=BLUE, sliderWidth=7, sliderHeight=20
     ):
         element = Slider(name, self, pos, value, baseWidth, baseHeight, baseColor, sliderColor, sliderWidth, sliderHeight)
         self.__elements[name] = element

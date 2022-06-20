@@ -12,7 +12,7 @@ class GameUI(UIComponent):
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
         t = self.addCanvas("t")
-        t.addSlider("test")
+        t.addSlider("test", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2))
 
     def eventUpdate(self, node):
         self.toggleDebug()
