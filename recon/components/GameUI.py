@@ -11,9 +11,6 @@ class GameUI(UIComponent):
         debug.addTextLabel("mouse_pos", color=(240, 240, 240, 140), size=18, pos=Vector2(0, 15))
         debug.addRect("bg", size=Vector2(235, 36), color=(0, 0, 0, 50))
 
-        t = self.addCanvas("t")
-        t.addSlider("test", pos=Vector2(GetScreenWidth()/2, GetScreenHeight()/2))
-
     def eventUpdate(self, node):
         self.toggleDebug()
 

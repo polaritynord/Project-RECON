@@ -17,9 +17,28 @@ class Slider:
         self.sliderWidth = sliderWidth
         self.sliderHeight = sliderHeight
         self.visible = True
+        self.__touch = False
     
     def engineUpdate(self):
-        pass
+        # Slider rec
+        sliderX = self.pos.x + self.value * self.baseWidth
+        sliderY = self.pos.y - abs(self.baseHeight - self.sliderHeight)/2
+        sliderRec = (sliderX, sliderY, self.sliderWidth, self.sliderHeight)
+
+        # Check for slider collision & set value
+
+        if IsMouseButtonDown(0):
+            if self.__touch:
+                newX = GetMouseX() - self.pos.x - self.sliderWidth/2
+                # Limit new x to the base
+                if newX < 0:
+                    newX = 0
+                elif newX > self.baseWidth:
+                    newX = self.baseWidth
+                
+                self.value = newX / self.baseWidth
+        else:
+            self.__touch = CheckCollisionPointRec(GetMousePosition(), sliderRec)
 
     def engineRender(self, offset):
         if not self.visible:
