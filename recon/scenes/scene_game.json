@@ -4,6 +4,7 @@
     },
 
     "Square": {
+        "components": ["SquareScript"],
         "e_components": ["TextureComponent"]
     }
 }

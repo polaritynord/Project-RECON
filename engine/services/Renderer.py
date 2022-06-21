@@ -9,9 +9,12 @@ class Renderer:
         self.elements = []
         self.textures = []
     
-    def engineRendereTexture(self):
+    def engineRenderTexture(self):
         for texture in self.textures:
-            pass
+            # Get transform from component parent
+            transform = texture.parent.getTransform()
+            texture.engineRender(transform)
+        self.textures = []
     
     def engineRenderParticle(self):
         for particle in self.particles:

@@ -11,15 +11,15 @@ class Tree(object):
         newNode.name = nodeName
         parent.getChildren()[nodeName] = newNode
         
-        # Add components
-        if "components" in nodeData:
-            for compName in nodeData["components"]:
-                newNode.addComponent(getattr(engine.gameComponents, compName))
-        
         # Add engine default components
         if "e_components" in nodeData:
             for compName in nodeData["e_components"]:
                 newNode.addComponent(getattr(engine, compName))
+
+        # Add components
+        if "components" in nodeData:
+            for compName in nodeData["components"]:
+                newNode.addComponent(getattr(engine.gameComponents, compName))
 
         # Add children
         if "children" in nodeData:

@@ -31,6 +31,7 @@ class GameManager:
             engine.tree.engineUpdate()
             BeginDrawing()
             ClearBackground((16, 49, 120))
+            engine.renderer.engineRenderTexture()
             engine.renderer.engineRenderParticle()
             engine.renderer.engineRenderUi()
             EndDrawing()
