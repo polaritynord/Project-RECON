@@ -1,6 +1,9 @@
 {
     "GameUI": {
-        "children": {},
         "components": ["GameUI"]
+    },
+
+    "Square": {
+        "e_components": ["TextureComponent"]
     }
 }

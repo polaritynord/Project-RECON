@@ -4,3 +4,4 @@ class Component(object):
         self.parent = parent
         self.name = type(self).__name__
         self.type = "Component"
+        self.enabled = True

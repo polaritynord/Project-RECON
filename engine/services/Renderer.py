@@ -7,6 +7,11 @@ class Renderer:
     def __init__(self):
         self.particles = []
         self.elements = []
+        self.textures = []
+    
+    def engineRendereTexture(self):
+        for texture in self.textures:
+            pass
     
     def engineRenderParticle(self):
         for particle in self.particles:

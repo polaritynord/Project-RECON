@@ -12,12 +12,19 @@ class Tree(object):
         parent.getChildren()[nodeName] = newNode
         
         # Add components
-        for compName in nodeData["components"]:
-            newNode.addComponent(getattr(engine.gameComponents, compName))
+        if "components" in nodeData:
+            for compName in nodeData["components"]:
+                newNode.addComponent(getattr(engine.gameComponents, compName))
+        
+        # Add engine default components
+        if "e_components" in nodeData:
+            for compName in nodeData["e_components"]:
+                newNode.addComponent(getattr(engine, compName))
 
         # Add children
-        for i, v in nodeData["children"].items():
-            self.__loadSceneNode(i, v, newNode)
+        if "children" in nodeData:
+            for i, v in nodeData["children"].items():
+                self.__loadSceneNode(i, v, newNode)
 
     def loadScene(self, sceneName):
         with open(join(engine.GAME_NAME, "scenes", sceneName + ".json")) as sc_file:
