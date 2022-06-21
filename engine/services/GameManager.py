@@ -6,6 +6,10 @@ from importlib import import_module
 
 class GameManager:
     def loadGame(directory):
+        # Load stuff
+        engine.GAME_NAME = directory
+        engine.gameComponents = import_module(f"{directory}.components")
+        # Read file
         with open(join(directory, "config.json")) as conf_file:
             conf_data = load(conf_file)
 
@@ -15,17 +19,20 @@ class GameManager:
             InitWindow(conf_data["win_size"][0], conf_data["win_size"][1], conf_data["title"].encode())
             SetExitKey(0)
 
+            # Load stuff
+            engine.assets.loadFont("default", join("engine", "resources", "RobotoMono-Regular.ttf"))
+
             # Set icon
             if conf_data["icon_path"] == "":
                 return
             iconImg = LoadImage(conf_data["icon_path"].encode())
             SetWindowIcon(iconImg)
             UnloadImage(iconImg)
+            # Load default scene
+            if not "default_scene" in conf_data:
+                return
+            engine.tree.loadScene(conf_data["default_scene"])
         
-        engine.GAME_NAME = directory
-        engine.gameComponents = import_module(f"{directory}.components")
-        engine.assets.loadFont("default", join("engine", "resources", "RobotoMono-Regular.ttf"))
-    
     def runGame():
         while not WindowShouldClose():
             engine.tree.engineUpdate()

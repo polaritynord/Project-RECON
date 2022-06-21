@@ -1,5 +1,5 @@
 {
-    "title": "Game",
+    "title": "Clicker Game",
     "win_size": [960, 540],
     "default_scene": "scene_game",
     "icon_path": "recon/resources/icon.png"

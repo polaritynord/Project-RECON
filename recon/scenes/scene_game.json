@@ -1,10 +1,6 @@
 {
-    "GameUI": {
-        "components": ["GameUI"]
-    },
-
-    "Square": {
-        "components": ["SquareScript"],
-        "e_components": ["TextureComponent"]
+    "Cookie": {
+        "e_components": ["TextureComponent"],
+        "components": ["CookieScript"]
     }
 }

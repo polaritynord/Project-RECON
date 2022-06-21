@@ -12,3 +12,7 @@ gameManager = GameManager
 assets = AssetManager()
 tree = Tree()
 keyboard = Keyboard()
+
+# Utilities
+def getScreenMiddle():
+    return Vector2(GetScreenWidth()/2, GetScreenHeight()/2)
